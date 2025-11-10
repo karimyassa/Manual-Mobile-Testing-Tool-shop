@@ -1,0 +1,160 @@
+﻿Summary,Issue key,Issue Type,Priority,Description
+Checkout Page → City field accepts non-alphabetic characters,TS-14,Bug,Medium,"*Steps to Reproduce:*
+# Go to the Checkout page.
+# Locate the City input field.
+# Enter non-alphabetic characters, such as:
+# Numbers: “Cairo123”
+# Symbols: “@Cairo!”
+# Click Continue or attempt to submit the form.
+
+*Expected Results:*
+The City field should only accept alphabetic characters and spaces (e.g., “New York”), and should reject numbers or special symbols with a validation error.
+
+*Actual Results:*
+The system accepts non-alphabetic input in the City field without any validation message or restriction."
+System → Fails to handle leading and trailing spaces in input fields,TS-13,Bug,Medium,"*Steps to Reproduce*
+# Navigate to any form (e.g., Login, Sign-Up, or Checkout page)
+# Enter valid input data with leading or trailing spaces in one or more fields — for example:
+# Email: "" user@example.com ""
+# Name: "" John ""
+# Postal Code: "" 12345 ""
+# Submit the form.
+
+*Expected Results:*
+The system should automatically trim leading and trailing spaces before validating the input, treating "" user@example.com "" as ""user@example.com"".
+
+*Actual Results:*
+The system fails to trim leading and trailing spaces, causing valid inputs to be rejected or processed incorrectly."
+Checkout Page → Postal code field accepts alphabetic characters,TS-12,Bug,Medium,"*Steps to Reproduce:*
+# Go to the Checkout page.
+# Locate the Postal Code input field.
+# Enter alphabetic characters (e.g., “ABCD”) instead of numeric values.
+# Click Continue or attempt to submit the form.
+
+*Expected Results:*
+The Postal Code field should only accept valid postal code formats (typically numeric or alphanumeric depending on the country) and should reject purely alphabetic input with a validation message.
+
+*Actual Results:*
+The system accepts alphabetic input in the Postal Code field and allows the form to be submitted without displaying any validation error."
+Cart Page → Reducing item quantity to 1 does not update total price,TS-11,Bug,Medium,"*Steps to Reproduce:*
+# Go to the Cart page.
+# Add a product with quantity greater than 1 (e.g., 3).
+# Manually reduce the quantity back to 1 using the input field or quantity control.
+# Observe the item total and cart total.
+
+*Expected Results:*
+When reducing the quantity to 1, the system should recalculate and update the item subtotal and overall cart total immediately.
+
+*Actual Results:*
+When changing the quantity from more than 1 back to 1, the total price does not update, and the system continues showing the previous total amount."
+Cart Page → Quantity field cannot be cleared manually without selecting the number first,TS-10,Bug,Medium,"*Steps to Reproduce:*
+# Go to the Cart page after adding any product.
+# Click on the Quantity field to edit the number.
+# Attempt to delete the existing number (e.g., “1”) using the backspace or delete key.
+# Try to type a new number without selecting the existing value first.
+
+*Expected Results:*
+Users should be able to delete the existing quantity freely using backspace or delete, and then enter a new number directly.
+ [^WhatsApp Video 2025-11-09 at 21.13.00_69ba440a.mp4] 
+*Actual Results:*
+The system does not allow deleting the number unless the user selects the entire value first.
+If the user presses a number key without selecting the old value, the digits are added to the existing quantity (e.g., “1” → “11” → “111”), making it difficult to enter single-digit quantities."
+Browsing Products → Page does not auto-scroll to top after switching pages,TS-9,Bug,Medium,"*Steps to Reproduce:*
+# Go to the Product Listing page.
+# Scroll down to view products near the bottom of the page.
+# Click to navigate to the next page (e.g., Page 2 or Page 3).
+
+*Expected Results:*
+After switching to a new page, the system should automatically scroll to the top of the page so that users can immediately see th [^WhatsApp Video 2025-11-09 at 21.01.29_6b75c2de.mp4] e new product list and page header.
+
+*Actual Results:*
+When switching pages, the system remains at the previous scroll position, displaying the bottom of the new page.
+Users must manually scroll up to view the new content."
+Browsing Products → System resets to first page and first product after navigating back from product details,TS-8,Bug,Medium,"*Steps to Reproduce:*
+# Go to the Product Listing page. [^WhatsApp Video 2025-11-09 at 20.53.20_99015849.mp4] 
+# Navigate to page 2 (or any page other than the first).
+# Select any product from that page to open its Product Details.
+# Click the Back button in the browser or use site navigation to return to the product list.
+
+*Expected Results:*
+The user should return to the same page and product position they were viewing before (e.g., page 2, same scroll position).
+
+*Actual Results:*
+After navigating back, the system returns to the first page of the product list and highlights or focuses on the first product, instead of restoring the previous page and position."
+Filters  → Applied filters are cleared when navigating back from a product details page,TS-7,Bug,Medium,"*Steps to Reproduce:*
+Go to the homepage.
+Apply one or more filters (e.g., category, price range, brand, etc.).
+Click on any product to open its Product Details page.
+Click the Back button in the browser or on the page to return to the product listing.
+
+Expected Results:
+The previously applied filters should persist after returning to the product listing page, showing only the filtered products.
+
+Actual Results:
+All applied filters are cleared, and the system reloads the full product list, forcing the user to reapply filters manually."
+Filter -> Selected sort option not displayed in dropdown after choosing filter,TS-6,Bug,Medium,"*Steps to reproduce:*
+# open filters in homepage 
+# select any type of sorting from the sort dropdown menu
+
+*Expected Results:*
+The selected sort type should remain visible in the dropdown field after being chosen (e.g., “Price: Low to High”), clearly indicating the active sorting criteria.
+
+*Actual Results:*
+After selecting a sort type, the dropdown closes but the selected option does not appear in the dropdown field.
+The user cannot tell which sorting option is currently applied."
+Login Page → Error message does not refresh on repeated invalid login attempts,TS-5,Bug,Medium,"*Steps to Reproduce:*
+# Open the Login page.
+# Enter an invalid email or password combination and click Login.
+# Observe the error message displayed (e.g., “Invalid email or password”).
+# Without refreshing the page, try another invalid input and click Login again.
+
+*Expected Results:*
+The system should refresh the error message or provide a visual response (e.g., button click animation or updated text) after each invalid attempt, indicating that the login process has been re-evaluated.
+
+*Actual Results:*
+The error message remains static and does not refresh after repeated invalid attempts.
+The Login button also shows no visual feedback, making it appear as if the system is unresponsive or frozen."
+Login Page → System allows login when email case sensitivity is mismatched,TS-4,Bug,Medium,"*Steps to Reproduce:*
+# Go to the Login page.
+# Enter a registered email address using different letter casing (e.g., “Karim@outlook.com” instead of karim@outlook.com”).
+# Enter the correct password associated with that account.
+# Click Login.
+
+*Expected Results:*
+The system should treat the email address as case-sensitive (if designed to be strict) and reject mismatched casing — displaying an appropriate error message (e.g., Invalid email or password).
+
+*Actual Results:*
+The system accepts the mismatched email casing and successfully logs the user into their account."
+Sign-Up Page → Password strength meter text and layout are misaligned,TS-3,Bug,Medium,"*Steps to Reproduce:*
+
+# Open the *Sign-Up* page.
+# Enter different passwords of varying complexity (weak, moderate, strong, etc.).
+# Observe the password strength section and meter below the password field.
+
+*Expected Results:*
+The password strength indicator should display a *single, clearly formatted strength label* (e.g., “Weak,” “Moderate,” “Strong”) and a *progress bar* that visually reflects the strength level.
+
+*Actual Results:*
+All strength labels (“Weak,” “Moderate,” “Strong,” “Very Strong,” “Excellent”) appear simultaneously, overlapping and misaligned, making the indicator unclear and unprofessional."
+Sign-Up Page → Postal code field accepts alphabetic and special characters,TS-2,Bug,Medium,"*Steps to Reproduce:*
+# Open the Sign-Up page.
+# Locate the Postal Code input field.
+# Enter alphabetic characters (e.g., “ABCD”) or special symbols (e.g., “@#$%”).
+# Click Sign Up or submit the form.
+
+*Expected Results:*
+The Postal Code field should only accept valid postal code formats — typically numeric or alphanumeric depending on region — and reject special symbols or purely alphabetic input.
+
+*Actual Results:*
+The system accepts alphabetic and special characters in the Postal Code field without displaying any validation error."
+Signup Page → Missing “Confirm Password” field during account registration,TS-1,Bug,Medium,"*Steps to Reproduce:*
+# Open the Signup page of the Tool Shop website.
+# Fill in all available fields (name, email, password, etc.).
+# Observe the form structure before submitting.
+
+*Expected Results:*
+The signup form should include a “Confirm Password” field to verify that the user entered their password correctly and prevent accidental typos.
+
+*Actual Results:*
+The signup form only includes a single Password field with no option to confirm it.
+This can lead to user frustration or failed logins due to mistyped passwords."
